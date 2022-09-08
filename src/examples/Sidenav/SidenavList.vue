@@ -28,6 +28,24 @@
           </template>
         </sidenav-item>
       </li>
+
+
+
+      <li class="nav-item">
+        <sidenav-item
+          url="/abc"
+          :class="getRoute() === 'abc' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'الجداول' : '12312321312'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+
+
       <li class="nav-item">
         <sidenav-item
           url="/billing"

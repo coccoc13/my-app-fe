@@ -8,6 +8,8 @@ import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
 
+import Abc from "../views/Abc.vue";
+
 const routes = [
   {
     path: "/",
@@ -23,6 +25,11 @@ const routes = [
     path: "/tables",
     name: "Tables",
     component: Tables,
+  },
+  {
+    path: "/abc",
+    name: "ABC",
+    component: Abc,
   },
   {
     path: "/billing",

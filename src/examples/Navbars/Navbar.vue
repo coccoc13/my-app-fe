@@ -30,6 +30,7 @@
               :placeholder="
                 this.$store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
               "
+              @change="abc"
             />
           </div>
         </div>
@@ -219,6 +220,9 @@ export default {
     toggleSidebar() {
       this.toggleSidebarColor("bg-white");
       this.navbarMinimize();
+    },
+    abc() {
+      console.log(11111);
     }
   },
   components: {
@@ -228,6 +232,6 @@ export default {
     currentRouteName() {
       return this.$route.name;
     }
-  }
+  },
 };
 </script>
