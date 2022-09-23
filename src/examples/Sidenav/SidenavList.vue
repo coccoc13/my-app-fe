@@ -33,9 +33,9 @@
 
       <li class="nav-item">
         <sidenav-item
-          url="/abc"
+          url="/search-list"
           :class="getRoute() === 'abc' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'الجداول' : '12312321312'"
+          :navText="this.$store.state.isRTL ? 'الجداول' : 'Search'"
         >
           <template v-slot:icon>
             <i

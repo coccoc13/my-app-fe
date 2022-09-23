@@ -7,8 +7,7 @@ import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
-
-import Abc from "../views/Abc.vue";
+import SearchList from "../views/SearchList.vue";
 
 const routes = [
   {
@@ -27,9 +26,9 @@ const routes = [
     component: Tables,
   },
   {
-    path: "/abc",
-    name: "ABC",
-    component: Abc,
+    path: "/search-list",
+    name: "Search List",
+    component: SearchList,
   },
   {
     path: "/billing",
