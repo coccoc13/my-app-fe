@@ -1,12 +1,21 @@
 <template>
   <div class="py-4 container-fluid">
-    <div class=" row">
-      <div class="col-md-2" v-for="item in list" :key="item.id">
+    <div class="row">
+      <div class="form-inline">
+        <select class="form-select form-group" aria-label="Default select example" v-model="currentSource">
+          <option v-for="source in sourceList" :key="source.key" :value="source.id">{{source.name}}</option>
+        </select>
+        <input class="form-control form-group" v-model="keyword">
+        <button class="btn btn-light form-group" @click="search" :disabled="isLoading">Search</button>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-6 col-md-3 col-xxl-2 d-flex" v-for="item in list" :key="item.id">
         <card-item
-          :avatarUrl="item.avatarUrl"
-          :title="item.title"
-          :description="item.description"
-          :referenceUrl="item.referenceUrl"
+          :avatarUrl="item.avatar"
+          :title="item.name"
+          :description="item.shortDescription"
+          :referenceUrl="item.url"
         />
       </div>
     </div>
@@ -15,6 +24,7 @@
 
 <script>
 import CardItem from "@/examples/Cards/CardItem.vue";
+import axios from "axios";
 
 export default {
   name: "search-list",
@@ -23,23 +33,31 @@ export default {
   },
   data() {
     return {
-      list: [
-        {
-          avatarUrl: "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg",
-          title: "test title",
-          description: "test description",
-          referenceUrl: "https://www.google.com",
-          id: 1
-        },
-        {
-          avatarUrl: "https://img.freepik.com/premium-photo/astronaut-outer-open-space-planet-earth-stars-provide-background-erforming-space-planet-earth-sunrise-sunset-our-home-iss-elements-this-image-furnished-by-nasa_150455-16829.jpg",
-          title: "test title",
-          description: "test description",
-          referenceUrl: "https://www.google.com",
-          id: 1
-        }
-      ]
+      sourceList: [],
+      currentSource: 1,
+      keyword: '',
+      page: 1,
+      list: [],
+      isLoading: false
     };
+  },
+  created() {
+    this.getSourceList();
+  },
+  methods: {
+    async getSourceList() {
+      axios
+				.get('https://coccoc-manga.herokuapp.com/source-list')
+				.then(response =>(this.sourceList = response.data))
+    },
+    async search() {
+      this.list = [];
+      this.isLoading = true;
+      axios
+				.get(`https://coccoc-manga.herokuapp.com/manga/${this.currentSource}/search`, {params: {keyword: this.keyword, page: 1}})
+				.then(response =>(this.list = response.data.items));
+      this.isLoading = false;
+    },
   },
 };
 </script>

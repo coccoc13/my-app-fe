@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
+  <div class="card mb-4 flex-fill">
     <a :href="referenceUrl"><img :src="avatarUrl" class="card-img-top"></a>
     <div class="card-body">
     <h5 class="card-title"><a :href="referenceUrl">{{ title }}</a></h5>
-    <p class="card-text">{{ description }}</p>
+    <!-- <p class="card-text">{{ description }}</p> -->
   </div>
 </div>
 </template>
