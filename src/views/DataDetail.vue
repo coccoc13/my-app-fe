@@ -1,7 +1,7 @@
 <template>
   <div class="py-4 container-fluid">
     <div class="row">
-      <a v-for="item in data.chapters" :key="item.id" :href="'/item-detail?source=' + this.$route.query.source + '&url=' + item.url">{{item.name}}</a>
+      <router-link v-for="item in data.chapters" :key="item.id" :to="'/item-detail?source=' + this.$route.query.source + '&url=' + item.url">{{item.name}}</router-link>
     </div>
   </div>
 </template>

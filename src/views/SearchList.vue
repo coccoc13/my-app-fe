@@ -1,12 +1,16 @@
 <template>
   <div class="py-4 container-fluid">
     <div class="row">
-      <div class="form-inline">
+      <div class="col-lg-2">
         <select class="form-select form-group" aria-label="Default select example" v-model="currentSource">
           <option v-for="source in sourceList" :key="source.key" :value="source.id">{{source.name}}</option>
         </select>
+      </div>
+      <div class="col-lg-5">
         <input class="form-control form-group" v-model="keyword">
-        <button class="btn btn-light form-group" @click="search" :disabled="isLoading">Search</button>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn btn-light form-group w-100" @click="search" :disabled="isLoading">Search</button>
       </div>
     </div>
     <div class="row mt-4">

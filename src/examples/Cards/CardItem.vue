@@ -1,11 +1,15 @@
 <template>
   <div class="card mb-4 flex-fill">
-    <a :href="referenceUrl"><img :src="avatarUrl" class="card-img-top"></a>
+    <router-link :to="referenceUrl">
+      <img :src="avatarUrl" class="card-img-top" />
+    </router-link>
     <div class="card-body">
-    <h5 class="card-title"><a :href="referenceUrl">{{ title }}</a></h5>
-    <!-- <p class="card-text">{{ description }}</p> -->
+      <h5 class="card-title">
+        <router-link :to="referenceUrl">{{ title }}</router-link>
+      </h5>
+      <!-- <p class="card-text">{{ description }}</p> -->
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -15,7 +19,7 @@ export default {
     avatarUrl: String,
     title: String,
     description: String,
-    referenceUrl: String
+    referenceUrl: String,
   },
 };
 </script>
