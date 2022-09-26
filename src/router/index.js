@@ -8,6 +8,8 @@ import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
 import SearchList from "../views/SearchList.vue";
+import DataDetail from "../views/DataDetail.vue";
+import ItemDetail from "../views/ItemDetail.vue";
 
 const routes = [
   {
@@ -29,6 +31,16 @@ const routes = [
     path: "/search-list",
     name: "Search List",
     component: SearchList,
+  },
+  {
+    path: "/data-detail",
+    name: "Data Detail",
+    component: DataDetail,
+  },
+  {
+    path: "/item-detail",
+    name: "Item Detail",
+    component: ItemDetail,
   },
   {
     path: "/billing",

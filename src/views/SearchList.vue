@@ -15,7 +15,7 @@
           :avatarUrl="item.avatar"
           :title="item.name"
           :description="item.shortDescription"
-          :referenceUrl="item.url"
+          :referenceUrl= "'/data-detail?source=' + this.currentSource + '&url=' + item.url"
         />
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       sourceList: [],
-      currentSource: 1,
+      currentSource: 0,
       keyword: '',
       page: 1,
       list: [],
